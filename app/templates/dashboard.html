@@ -1,0 +1,51 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+<div id = "background-container">
+    <div class="container">
+        <h1>{{ current_user.username }}'s dashboard</h1>
+
+        <h2>Task List</h2>
+
+        <form action="{{ url_for('add_task')}}">
+            <input type="submit" value="Add a task">
+        </form>
+
+        <p>{{ incomplete_weight_sum }}</p>
+
+        <div class="container">
+            {% for task in tasks %}
+            <div class="{% if task.complete %}completed-task{% else %}task-incomplete{% endif %}"> 
+                <div class="col1">
+                    <h3>{{task.title}} {% if task.complete %}(completed){% else %} {% endif %}</h3>
+                    <p class="task-text">Weight: {{task.weight_user }} | Deadline: {{ task.deadline }}</p>
+                </div>
+                <div class="col2">
+                    <form style="display:inline" action="/update/{{ task.id }}">
+                        <input style="background-color: white; color: rgb(51, 40, 40); width: 40px; size: 12px;" class="task-button" type="submit" value="{% if task.complete %}━{% else %}✔{% endif %}"/>
+                    </form action="/delete/{{ task.id }}">
+                    <form style="display:inline" action="/delete/{{ task.id }}">
+                        <input  style="background-color: white; color: rgb(51, 40, 40); width: 40px; size: 12px;" class="task-button" type="submit" value="✖️"/>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+            <p>No tasks available.</p>
+            {% endfor %}
+        </div>
+
+        <div id="data-container" total_seconds="{{ total_seconds }}" seconds_left="{{ seconds_left }}"></div>
+    </div>
+</div>
+
+<div style="background-image: url('static/pixil-frame-0.png');"></div>
+<div style="background-image: url('static/pixil-frame-1.png');"></div>
+<div style="background-image: url('static/pixil-frame-2.png');"></div>
+<div style="background-image: url('static/pixil-frame-3.png');"></div>
+<div style="background-image: url('static/pixil-frame-4.png');"></div>
+<div style="background-image: url('static/pixil-frame-5.png');"></div>
+<div style="background-image: url('static/pixil-frame-6.png');"></div>
+
+<script src="static/background.js"></script>
+
+{% endblock %}

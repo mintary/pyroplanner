@@ -1,0 +1,41 @@
+<!-- templates/countdown.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div id="timer"></div>
+    <script>
+        // Set the target date and time (replace this with your desired end time)
+        const targetDate = new Date();
+        targetDate.setHours(targetDate.getHours() + 2);
+
+        // Update the countdown every second
+        const timerInterval = setInterval(updateTimer, 1000);
+
+        function updateTimer() {
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            if (timeDifference <= 0) {
+                // Timer has reached zero
+                clearInterval(timerInterval);
+                document.getElementById('timer').innerHTML = 'Timer expired!';
+            } else {
+                // Calculate hours, minutes, and seconds
+                const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                // Display the timer
+                document.getElementById('timer').innerHTML =
+                    `Time Remaining: ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+    </script>
+</body>
+</html>

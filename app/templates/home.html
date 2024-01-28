@@ -1,0 +1,20 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="block">
+            <h1>Welcome to Pyroplanner</h1>
+            <div class="button-block">
+                <form action="{{ url_for('login')}}">
+                    <input type="submit" value="Log in"/>
+                </form>
+            </div>
+            <div class="button-block">
+                <form action="{{ url_for('create_account')}}">
+                    <input type="submit"value="Create account"/>
+                </form>
+            </div>
+        <div>
+    <div>
+    
+{% endblock %}
