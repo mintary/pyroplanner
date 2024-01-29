@@ -1,3 +1,4 @@
 # Pyroplanner
 
-To-do list with user login and visuals for McHacks 11
+To-do list with user login and a changing background based on the urgency of tasks
+Built in 24 hours for McHacks11
