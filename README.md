@@ -6,5 +6,5 @@ Built in 24 hours for McHacks11
 A cleaned version of https://github.com/Kisigi75/McHacks11
 
 Collaborators:
-Kim (Kisigi75)
-Adele (meliz9)
+- Kim (Kisigi75)
+- Adele (meliz9)
